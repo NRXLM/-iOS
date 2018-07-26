@@ -1,0 +1,74 @@
+//
+//  UToolBox.h
+//  GlobalType
+//
+//  Created by 王 家振 on 13-10-12.
+//  Copyright (c) 2013年 王 家振. All rights reserved.
+//
+
+#import "TypeDef.h"
+#import <UIKit/UIKit.h>
+#import "GlobalDef.h"
+
+@interface UToolBox : NSObject
+
+// 过滤掉值为NSNull的值，如果为NSNull则返回nil
++ (id) filterNull:(id) obj;
+
+// 获取设备
++ (NSString* ) getDeviceDescription;
+
+// 获取app版本号
++ (NSString* ) getAPPVersion;
+
+// 获取app名字
++ (NSString* ) getAPPName;
+
+// 生成二维码字符串
++ (NSString*) buildDisilicideStr:(UNDWORD)uID withURL:(NSString*) url;
+
+// 获取现在的时间
++ (UNDWORD) getNow;
+
+// 时间是否是同一天比较
++ (BOOL) dateIsSameDay:(NSDate* )date1 otherDate:(NSDate* )date2;
+
+// alert提示
++ (void) alertNotifyError:(NSString* )title content:(NSString* )content threadState:(BOOL)isOnMainThread target:(id)delgate btnNum:(int)num;
+
+//ios7 需要自己重新计算textview contentsize
++(CGFloat)measureHeightOfUITextView:(UITextView *)txtView;
+
+// 字符串的高度
++ (CGSize)textSizeForText:(NSString*)text andFontSize:(CGFloat)size width:(CGFloat)width;
+//NSdate转NSString
++ (NSString*)stringFromDate:(NSDate*)date format:(NSString*)format;
+
+//sec 转换为NSString
++ (NSString*)stringFromInterval:(long long)sec format:(NSString*)format;
+
+//计算汉字的个数
++(NSUInteger) lenghtWithString:(NSString *)string;
+
+//原图路径加 _s 获取缩略图路径
++ (NSString* )convertToThumbPath:(NSString* )sourceStr;
+//缩略图去除 _s 获取原图路径
++ (NSString* )convertToSourcePath:(NSString* )thumbStr;
+
+//获取星座
++ (NSString *)starStringFromMonth:(int)month day:(int)day;
+
+//星座 to starId
++ (int)starStringToStarId:(NSString *)starString;
+
+//starId to 星座
++ (NSString *)starIdTostarString:(int)starId;
+
+//NSString to NSAttributedString
++ (NSMutableDictionary*)getAttributedStringHeightWithString:(NSAttributedString *)string WidthValue:(CGFloat)width fontsize:(float)fontsize;
+
+//获取前三行字符串的高度
++ (CGFloat)getAgoThreeTotalHeight:(NSAttributedString *)string WidthValue:(CGFloat)width fontsize:(float)fontsize;
+
+
+@end

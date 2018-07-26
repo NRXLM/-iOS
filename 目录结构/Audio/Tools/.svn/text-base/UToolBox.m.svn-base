@@ -1,0 +1,532 @@
+//
+//  UToolBox.m
+//  GlobalType
+//
+//  Created by 王 家振 on 13-10-12.
+//  Copyright (c) 2013年 王 家振. All rights reserved.
+//
+
+#import "UToolBox.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "sys/utsname.h"
+#import <sys/time.h>
+//#import <libxml/HTMLparser.h>
+#import <CoreText/CoreText.h>
+
+@implementation UToolBox
+
++ (id) filterNull:(id)obj
+{
+    return [obj isEqual:[NSNull null]] ? nil : obj;
+}
+
+// 获取设备
++ (NSString* ) getDeviceDescription
+{
+    // 需要#import "sys/utsname.h"
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    NSString *deviceString = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+    
+    if ([deviceString isEqualToString:@"iPhone1,1"])    return @"iPhone 1G";
+    if ([deviceString isEqualToString:@"iPhone1,2"])    return @"iPhone 3G";
+    if ([deviceString isEqualToString:@"iPhone2,1"])    return @"iPhone 3GS";
+    if ([deviceString isEqualToString:@"iPhone3,1"])    return @"iPhone 4";
+    if ([deviceString isEqualToString:@"iPhone4,1"])    return @"iPhone 4S";
+    if ([deviceString isEqualToString:@"iPhone5,2"])    return @"iPhone 5";
+    if ([deviceString isEqualToString:@"iPhone3,2"])    return @"Verizon iPhone 4";
+    if ([deviceString isEqualToString:@"iPod1,1"])      return @"iPod Touch 1G";
+    if ([deviceString isEqualToString:@"iPod2,1"])      return @"iPod Touch 2G";
+    if ([deviceString isEqualToString:@"iPod3,1"])      return @"iPod Touch 3G";
+    if ([deviceString isEqualToString:@"iPod4,1"])      return @"iPod Touch 4G";
+    if ([deviceString isEqualToString:@"iPad1,1"])      return @"iPad";
+    if ([deviceString isEqualToString:@"iPad2,1"])      return @"iPad 2 (WiFi)";
+    if ([deviceString isEqualToString:@"iPad2,2"])      return @"iPad 2 (GSM)";
+    if ([deviceString isEqualToString:@"iPad2,3"])      return @"iPad 2 (CDMA)";
+    if ([deviceString isEqualToString:@"i386"])         return @"Simulator";
+    if ([deviceString isEqualToString:@"x86_64"])       return @"Simulator";
+    NSLog(@"NOTE: Unknown device type: %@", deviceString);
+    return deviceString;
+}
+
+// 获取app版本号
++ (NSString* ) getAPPVersion
+{
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    //CFShow(infoDictionary);
+    
+    // app版本
+    NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    return app_Version;
+}
+
+// 获取app名字
++ (NSString* ) getAPPName
+{
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    //CFShow(infoDictionary);
+    
+    // app名称
+    NSString *app_Name = [infoDictionary objectForKey:@"CFBundleDisplayName"];
+    return app_Name;
+}
+
++(NSUInteger) lenghtWithString:(NSString *)string
+{
+    NSUInteger len = string.length;
+    // 汉字字符集
+    NSString * pattern  = @"[\u4e00-\u9fa5]";
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
+    // 计算中文字符的个数
+    NSInteger numMatch = [regex numberOfMatchesInString:string options:NSMatchingReportProgress range:NSMakeRange(0, len)];
+    
+    return len + numMatch;
+}
+
++ (NSMutableDictionary*)getAttributedStringHeightWithString:(NSAttributedString *)string WidthValue:(CGFloat)width fontsize:(float)fontsize
+{
+    if([string isKindOfClass:[NSNull class]] || string.length == 0)
+    {
+        return nil;
+    }
+   
+    CGSize s = CGSizeMake(0, 0);
+    int total_height = 0;
+    int total_width = 0;
+    
+    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)string);
+    CGRect drawingRect = CGRectMake(0, 0, width, 2000.0);
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathAddRect(path, NULL, drawingRect);
+    CTFrameRef textFrame = CTFramesetterCreateFrame(framesetter,CFRangeMake(0,0), path, NULL);
+    CGPathRelease(path);
+    CFRelease(framesetter);
+    
+    NSArray *linesArray = ( NSArray *) CTFrameGetLines(textFrame);
+
+    CGPoint origins[[linesArray count]];
+    CTFrameGetLineOrigins(textFrame, CFRangeMake(0, 0), origins);
+    
+    CGFloat line_y = origins[[linesArray count] -1].y;
+    
+    CGFloat ascent;
+    CGFloat descent;
+    CGFloat leading;
+    
+    CTLineRef line = (CTLineRef) [linesArray objectAtIndex:[linesArray count]-1];
+    total_width = CTLineGetTypographicBounds(line, &ascent, &descent, &leading);
+    CGFloat space = ([linesArray count]-1)*1.0;
+    total_height = 2000.0 - line_y + ceilf(descent)+ceilf(ascent) + ceilf(space) +1;
+    
+    if ([linesArray count] > 1)
+    {
+        s = CGSizeMake(width, total_height);
+    }
+    else//只有一行
+    {
+        s = CGSizeMake(total_width + 1, total_height);
+    }
+    
+    NSMutableDictionary* muDic = [[[NSMutableDictionary alloc] init] autorelease];
+    [muDic setValue:[NSString stringWithFormat:@"%f",s.height]forKey:@"height"];
+    [muDic setValue:[NSString stringWithFormat:@"%f",s.width] forKey:@"width"];
+    [muDic setValue:[NSString stringWithFormat:@"%lu",(unsigned long)[linesArray count]] forKey:@"count"];
+    
+    CFRelease(textFrame);
+    return muDic;
+    
+}
+
++ (CGFloat)getAgoThreeTotalHeight:(NSAttributedString *)string WidthValue:(CGFloat)width fontsize:(float)fontsize
+{
+    int total_height = 0;
+    
+    CTFramesetterRef framesetter = (CTFramesetterRef)(CFBridgingRelease(CTFramesetterCreateWithAttributedString((CFAttributedStringRef)string)));
+    CGRect drawingRect = CGRectMake(0, 0, width, 2000.0);
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathAddRect(path, NULL, drawingRect);
+    CTFrameRef textFrame = (CTFrameRef)(CFBridgingRelease(CTFramesetterCreateFrame(framesetter,CFRangeMake(0,0), path, NULL)));
+    CGPathRelease(path);
+    NSArray *linesArray = ( NSArray *) CTFrameGetLines(textFrame);
+    CGPoint origins[[linesArray count]];
+    CTFrameGetLineOrigins(textFrame, CFRangeMake(0, 0), origins);
+    
+    CGFloat ascent;
+    CGFloat descent;
+    CGFloat leading;
+    total_height = 0;
+    for (int i=0; i<3; i++)
+    {
+        CTLineRef line = (CTLineRef) [linesArray objectAtIndex:i];
+        CTLineGetTypographicBounds(line, &ascent, &descent, &leading);
+        total_height += (ceil(ascent) +ceil(descent) +ceil(leading)+1);
+    }
+    
+    return total_height;
+}
+//ios7 需要自己重新计算textview contentsize
++(CGFloat)measureHeightOfUITextView:(UITextView *)txtView
+{
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {//7.0以上我们需要自己计算高度
+        
+        // CGRect textFrame=[[self.textView layoutManager]usedRectForTextContainer:[self.textView textContainer]];
+        NSDictionary* dic = [[[NSDictionary alloc] initWithObjectsAndKeys:txtView.font,NSFontAttributeName, nil] autorelease];
+        return [[NSString stringWithFormat:@"%@\n ",txtView.text]
+                boundingRectWithSize:CGSizeMake(txtView.frame.size.width, CGFLOAT_MAX)
+                options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                attributes:dic context:nil].size.height;
+        
+    }
+    else
+    {
+        return  txtView.contentSize.height ;
+    }
+    
+}
+
+
+//原图路径加 _s 获取缩略图路径
++ (NSString* )convertToThumbPath:(NSString* )sourceStr
+{
+    NSArray* strs = [sourceStr componentsSeparatedByString:@"."];
+    NSString* expand = [strs lastObject];
+    
+    NSString* thumbPath = nil;
+    thumbPath = [[sourceStr componentsSeparatedByString:[NSString stringWithFormat:@".%@",expand]] objectAtIndex:0];
+    thumbPath = [thumbPath stringByAppendingFormat:@"_s.%@",expand];
+    
+    return thumbPath;
+}
+
+//缩略图去除 _s 获取原图路径
++ (NSString* )convertToSourcePath:(NSString* )thumbStr
+{
+    NSArray* strs = [thumbStr componentsSeparatedByString:@"_s"];
+    NSString* sourcePath = nil;
+    if ([strs count] >= 2)
+    {
+        sourcePath = [strs objectAtIndex:0];
+        sourcePath = [sourcePath stringByAppendingString:[strs objectAtIndex:1]];
+    }
+    return sourcePath;
+}
+
++ (CGSize)textSizeForText:(NSString*)text andFontSize:(CGFloat)size width:(CGFloat)width
+
+{
+    //判断返回是否为NSNull
+    if([text isKindOfClass:[NSNull class]] || text == nil){
+        CGSize theSize=CGSizeMake(0, 0);
+        return theSize;
+    }
+    else
+    {
+        CGFloat height = 1000.;//MAX([self numberOfLines:text]*30, [self numberOfLinesForMessage:text length:length]*30);
+        if (IOS_7)
+        {
+            NSMutableParagraphStyle *paragraphStyle = [[[NSMutableParagraphStyle alloc]init] autorelease];
+            paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+            NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:size], NSParagraphStyleAttributeName:paragraphStyle};
+            
+            return [text boundingRectWithSize:CGSizeMake(width, height)
+                                      options:NSStringDrawingUsesLineFragmentOrigin
+                                   attributes:attributes
+                                      context:nil].size;
+        }
+        
+        return [text sizeWithFont:[UIFont systemFontOfSize:size] constrainedToSize:CGSizeMake(width, height) lineBreakMode:NSLineBreakByWordWrapping];
+        
+    }
+
+}
+
++ (NSUInteger)numberOfLinesForMessage:(NSString *)txt length:(int)length
+{
+    return (txt.length / length) + 1;
+}
+
++(NSUInteger)numberOfLines:(NSString*)text
+{
+    return [text componentsSeparatedByString:@"\n"].count + 1;
+}
+
+
+// 生成二维码字符串
++ (NSString* ) buildDisilicideStr:(UNDWORD)uID withURL:(NSString*) url
+{
+    NSString* disilicideStr = nil;
+    if (uID > 0)
+    {
+        disilicideStr = [NSString stringWithFormat:@"%@?userid=%llu",url,uID];
+    }
+    return disilicideStr;
+}
+
+
++ (UNDWORD) getNow
+{
+    struct timeval t;
+    gettimeofday(&t,NULL);
+    long long dwTime = ((long long)1000000 * t.tv_sec + (long long)t.tv_usec)/1000;
+    return dwTime;
+}
+
+// 时间是否是同一天比较
++ (BOOL) dateIsSameDay:(NSDate* )date1 otherDate:(NSDate* )date2
+{
+    NSCalendar *gregorian = [[[NSCalendar alloc]
+                              initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
+    
+    NSDateComponents *component1 = [gregorian components: (NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
+                                                        fromDate: date1];
+    NSDateComponents* component2 = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:date2];
+
+    if (component1.year == component2.year && component1.month == component2.month && component1.day == component2.day)
+    {
+        return YES;
+    }
+    
+    return NO;
+}
+
+// alert提示
++ (void) alertNotifyError:(NSString* )title content:(NSString* )content threadState:(BOOL)isOnMainThread target:(id)delgate btnNum:(int)num
+{
+    UIAlertView *alertView = nil;
+    if (num == 1)
+    {
+        alertView = [[UIAlertView alloc] initWithTitle:title
+                                               message:content
+                                              delegate:delgate
+                                     cancelButtonTitle:@"确定"
+                                     otherButtonTitles:nil, nil];
+    }
+    else
+    {
+        alertView = [[UIAlertView alloc] initWithTitle:title
+                                               message:content
+                                              delegate:delgate
+                                     cancelButtonTitle:@"取消"
+                                     otherButtonTitles:@"确定", nil];
+    }
+    
+    if (isOnMainThread)
+    {
+        [alertView show];
+    }
+    else
+    {
+        [alertView performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
+    }
+    [alertView release];
+}
+
+
+//NSdate转NSString
++ (NSString*)stringFromDate:(NSDate*)date format:(NSString*)format
+{
+    //NSDate* date = [NSDate dateWithTimeIntervalSince1970:sec];
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:format];
+    NSString* strDate = [dateFormatter stringFromDate:date];
+    [dateFormatter release];
+    
+    return strDate;
+}
+
+//sec 转换为NSString
++ (NSString*)stringFromInterval:(long long)sec format:(NSString*)format
+{
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:sec];
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:format];
+    NSString* strDate = [dateFormatter stringFromDate:date];
+    [dateFormatter release];
+    
+    return strDate;
+}
+
++ (NSString *)starStringFromMonth:(int)month day:(int)day
+{
+    switch (month) {
+        case 3:
+        {
+            if (day <= 20) {
+                return @"双鱼座";
+            }
+            else
+            {
+                return @"白羊座";
+            }
+            
+        }
+            break;
+        case 4:
+        {
+            if (day <= 19) {
+                return @"白羊座";
+            }
+            else
+            {
+                return @"金牛座";
+            }
+            
+        }
+            break;
+        case 5:
+        {
+            if (day <= 20) {
+                return @"金牛座";
+            }
+            else
+            {
+                return @"双子座";
+            }
+            
+        }
+            break;
+        case 6:
+        {
+            if (day <= 21) {
+                return @"双子座";
+            }
+            else
+            {
+                return @"巨蟹座";
+            }
+            
+        }
+            break;
+        case 7:
+        {
+            if (day <= 22) {
+                return @"巨蟹座";
+            }
+            else
+            {
+                return @"狮子座";
+            }
+            
+        }
+            break;
+        case 8:
+        {
+            if (day <= 22) {
+                return @"狮子座";
+            }
+            else
+            {
+                return @"处女座";
+            }
+            
+        }
+            break;
+        case 9:
+        {
+            if (day <= 22) {
+                return @"处女座";
+            }
+            else
+            {
+                return @"天秤座";
+            }
+            
+        }
+            break;
+        case 10:
+        {
+            if (day <= 23) {
+                return @"天秤座";
+            }
+            else
+            {
+                return @"天蝎座";
+            }
+            
+        }
+            break;
+        case 11:
+        {
+            if (day <= 22) {
+                return @"天蝎座";
+            }
+            else
+            {
+                return @"射手座";
+            }
+            
+        }
+            break;
+        case 12:
+        {
+            if (day <= 21) {
+                return @"射手座";
+            }
+            else
+            {
+                return @"摩羯座";
+            }
+            
+        }
+            break;
+        case 1:
+        {
+            if (day <= 19) {
+                return @"摩羯座";
+            }
+            else
+            {
+                return @"水瓶座";
+            }
+            
+        }
+            break;
+        case 2:
+        {
+            if (day <= 18) {
+                return @"水瓶座";
+            }
+            else
+            {
+                return @"双鱼座";
+            }
+            
+        }
+            break;
+            
+        default:
+            return nil;
+    }
+    return nil;
+}
+
+
++ (int)starStringToStarId:(NSString *)starString
+{
+    NSArray *arr = [NSArray arrayWithObjects:@"白羊座",@"金牛座",@"双子座",@"巨蟹座",@"狮子座",@"处女座",@"天秤座",@"天蝎座",@"射手座",@"摩羯座",@"水瓶座",@"双鱼座", nil];
+    for (int i=0;i<[arr count];i++) {
+        NSString *str = [arr objectAtIndex:i];
+        if ([str isEqualToString:starString]) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+
++ (NSString *)starIdTostarString:(int)starId
+{
+    if (starId<0||starId>11) {
+
+        return nil;
+    }
+    else
+    {
+        NSArray *arr = [NSArray arrayWithObjects:@"白羊座",@"金牛座",@"双子座",@"巨蟹座",@"狮子座",@"处女座",@"天秤座",@"天蝎座",@"射手座",@"摩羯座",@"水瓶座",@"双鱼座", nil];
+        return [arr objectAtIndex:starId];
+    }
+}
+
+@end
