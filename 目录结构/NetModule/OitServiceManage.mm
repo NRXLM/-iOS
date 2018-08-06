@@ -76,7 +76,7 @@ bool COitServiceManage::StartService(CHAR *jobNum, CHAR *mobile, int vcx, int vc
     
     int nJobjNumLen=lstrlen(jobNum);
     int nMobileLen=lstrlen(mobile);
-    if(nJobjNumLen>=MAX_NAME)
+    if(nJobjNumLen>=MAX_NAME*2)
     {
         mNetDataSyncSink.OnNotifyScreenCap(JNI_SC_1015);
         return false;
