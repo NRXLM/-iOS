@@ -95,7 +95,7 @@ typedef NS_ENUM(NSInteger,RegisterType)
 				  AndRecodHeight:(int)Height
 					 screenWidth:(int)scx
 					screenHeight:(int)scy;
-// 切换麦克风，听筒
+// 切换扬声器，听筒
 -(void)changeAudioSession;
 // 暂停音频
 -(void)pauseAudio;
