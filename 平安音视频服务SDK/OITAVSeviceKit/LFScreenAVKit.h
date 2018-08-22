@@ -74,10 +74,16 @@ typedef NS_ENUM(NSInteger,RegisterType)
 //加密字符串
 -(int)EncryptString:(const char *) pSrcStr encStr:(char *) pEncStr buffSize:(int) buffSize;
 
+// 打开白名单功能 (默认打开)
+-(void)openWhiteList;
+// 关闭白名单功能
+-(void)closeWhiteList;
 // 添加白名单
 -(BOOL)addWhiteListWith:(NSString *)urlStr;
+-(BOOL)addWhiteListWithArray:(NSArray<NSString *> *)mArray;
 // 删除白名单
 -(BOOL)deleteWhiteListWith:(NSString *)urlStr;
+-(BOOL)deleteWhiteListWithArray:(NSArray<NSString *> *)mArray;
 
 //开启服务
 //工号aJobNum ,手机号码 aMobile
@@ -89,6 +95,13 @@ typedef NS_ENUM(NSInteger,RegisterType)
 				  AndRecodHeight:(int)Height
 					 screenWidth:(int)scx
 					screenHeight:(int)scy;
+// 切换麦克风，听筒
+-(void)changeAudioSession;
+// 暂停音频
+-(void)pauseAudio;
+// 重启音频
+-(void)reStartAudio;
+
 //关闭服务
 -(BOOL)StopSevice;
 @end
