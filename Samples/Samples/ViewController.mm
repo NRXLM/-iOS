@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#include "localdef.h"
 #import "LFScreenAVKit.h"
 #import <WebKit/WKWebView.h>
 
@@ -31,11 +30,6 @@
 #endif
 
 //#define IP_PORT "192.168.1.104:52288"
-
-
-
-
-BYTE gcbRgbData[ENC_VCX*ENC_VCY*4];
 
 
 #define UIWeb 0
@@ -175,15 +169,14 @@ BYTE gcbRgbData[ENC_VCX*ENC_VCY*4];
 		@2007:							@"客服端停止辅助服务"
 		};
 
-    LPCTSTR lpszLbsList	=	(char *)[_lbsNum UTF8String];
+    const char * lpszLbsList	=	(char *)[_lbsNum UTF8String];
     
 	mSCKitHnd = [LFAVKit CreateLFLiveScreenKit:(RegisterTypeVideo|RegisterTypeAudio)];
     [mSCKitHnd InitAVKitWith:(char*)lpszLbsList AndCallBack:self];
     
 	[mSCKitHnd SetHasMkWebView:YES];
     [mSCKitHnd SetBusinessType:10 extVal:""];
-	
-    NSLog(@"-------%d", g_GlobalData.nBusinessType);
+    
     
     int srcWidth          = [mSCKitHnd GetScreenWidth];
     int srcHeight         = [mSCKitHnd GetScreenHeight];

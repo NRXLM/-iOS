@@ -33,11 +33,9 @@
 		862C7DB5212EB59E00F60DC3 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		862C7DB6212EB59F00F60DC3 /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		862C7DB7212EB59F00F60DC3 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		862C7DD4212EB5B400F60DC3 /* IMDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDelegate.h; sourceTree = "<group>"; };
 		862C7DD8212EB5B400F60DC3 /* LFScreenAVKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFScreenAVKit.h; sourceTree = "<group>"; };
 		862C7DDE212EB5E400F60DC3 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		862C7DE5212EB9B000F60DC3 /* libOITAVSeviceKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOITAVSeviceKit.a; sourceTree = "<group>"; };
-		862C7DEC212EBDFA00F60DC3 /* localdef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = localdef.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				862C7DE5212EB9B000F60DC3 /* libOITAVSeviceKit.a */,
-				862C7DEC212EBDFA00F60DC3 /* localdef.h */,
-				862C7DD4212EB5B400F60DC3 /* IMDelegate.h */,
 				862C7DD8212EB5B400F60DC3 /* LFScreenAVKit.h */,
 			);
 			name = OITAVSeviceKit;
