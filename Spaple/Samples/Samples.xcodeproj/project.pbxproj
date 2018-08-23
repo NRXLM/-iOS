@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		866B8CD020EC70E700C11B27 /* libOITAVSeviceKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 866B8CBB20EC70E600C11B27 /* libOITAVSeviceKit.a */; };
-		866B8CD120EC70E700C11B27 /* libAudioUnit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 866B8CC120EC70E600C11B27 /* libAudioUnit.a */; };
-		866B8CD220EC70E700C11B27 /* libAVManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 866B8CC820EC70E600C11B27 /* libAVManager.a */; };
-		866B8CD320EC70E700C11B27 /* libAudioProcessing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 866B8CCF20EC70E700C11B27 /* libAudioProcessing.a */; };
+		862C7CD4212EA99400F60DC3 /* libAudioUnit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C7CBB212EA99400F60DC3 /* libAudioUnit.a */; };
+		862C7CD5212EA99400F60DC3 /* libAVManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C7CC0212EA99400F60DC3 /* libAVManager.a */; };
+		862C7CD6212EA99400F60DC3 /* libAudioProcessing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C7CC1212EA99400F60DC3 /* libAudioProcessing.a */; };
+		862C7CD7212EA99400F60DC3 /* libOITAVSeviceKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C7CCE212EA99400F60DC3 /* libOITAVSeviceKit.a */; };
 		B64F42FC202196CB00B02093 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B64F42FB202196CB00B02093 /* WebKit.framework */; };
 		B69D8DC520105CB700E1E377 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B69D8DC420105CB700E1E377 /* AppDelegate.m */; };
 		B69D8DC820105CB700E1E377 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = B69D8DC720105CB700E1E377 /* ViewController.mm */; };
@@ -24,33 +24,33 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		866B8CB520EC70E500C11B27 /* MacThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacThread.h; sourceTree = "<group>"; };
-		866B8CB620EC70E500C11B27 /* ScreenCapThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenCapThread.h; sourceTree = "<group>"; };
-		866B8CB720EC70E500C11B27 /* H264HwDecoderImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264HwDecoderImpl.h; sourceTree = "<group>"; };
-		866B8CB820EC70E500C11B27 /* TimerEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerEngine.h; sourceTree = "<group>"; };
-		866B8CB920EC70E500C11B27 /* DataType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataType.h; sourceTree = "<group>"; };
-		866B8CBA20EC70E600C11B27 /* H264HwEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264HwEncoder.h; sourceTree = "<group>"; };
-		866B8CBB20EC70E600C11B27 /* libOITAVSeviceKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOITAVSeviceKit.a; sourceTree = "<group>"; };
-		866B8CBC20EC70E600C11B27 /* OBNetCallBackSink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBNetCallBackSink.h; sourceTree = "<group>"; };
-		866B8CBD20EC70E600C11B27 /* globaldef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globaldef.h; sourceTree = "<group>"; };
-		866B8CBE20EC70E600C11B27 /* NetDataSyncSink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetDataSyncSink.h; sourceTree = "<group>"; };
-		866B8CBF20EC70E600C11B27 /* LinuxEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinuxEvent.h; sourceTree = "<group>"; };
-		866B8CC020EC70E600C11B27 /* localdef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = localdef.h; sourceTree = "<group>"; };
-		866B8CC120EC70E600C11B27 /* libAudioUnit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAudioUnit.a; sourceTree = "<group>"; };
-		866B8CC220EC70E600C11B27 /* OitServiceManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OitServiceManage.h; sourceTree = "<group>"; };
-		866B8CC320EC70E600C11B27 /* IUnknownEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUnknownEx.h; sourceTree = "<group>"; };
-		866B8CC420EC70E600C11B27 /* SockClientSink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SockClientSink.h; sourceTree = "<group>"; };
-		866B8CC520EC70E600C11B27 /* ProtocolFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolFunction.h; sourceTree = "<group>"; };
-		866B8CC620EC70E600C11B27 /* IMDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDelegate.h; sourceTree = "<group>"; };
-		866B8CC720EC70E600C11B27 /* H264HwEncoderImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264HwEncoderImpl.h; sourceTree = "<group>"; };
-		866B8CC820EC70E600C11B27 /* libAVManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAVManager.a; sourceTree = "<group>"; };
-		866B8CC920EC70E700C11B27 /* custom_log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = custom_log.h; sourceTree = "<group>"; };
-		866B8CCA20EC70E700C11B27 /* LFScreenAVKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFScreenAVKit.h; sourceTree = "<group>"; };
-		866B8CCB20EC70E700C11B27 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		866B8CCC20EC70E700C11B27 /* ClientModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientModule.h; sourceTree = "<group>"; };
-		866B8CCD20EC70E700C11B27 /* ClientSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientSocket.h; sourceTree = "<group>"; };
-		866B8CCE20EC70E700C11B27 /* DataStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStorage.h; sourceTree = "<group>"; };
-		866B8CCF20EC70E700C11B27 /* libAudioProcessing.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAudioProcessing.a; sourceTree = "<group>"; };
+		862C7CB9212EA99400F60DC3 /* ScreenCapThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenCapThread.h; sourceTree = "<group>"; };
+		862C7CBA212EA99400F60DC3 /* H264HwEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264HwEncoder.h; sourceTree = "<group>"; };
+		862C7CBB212EA99400F60DC3 /* libAudioUnit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAudioUnit.a; sourceTree = "<group>"; };
+		862C7CBC212EA99400F60DC3 /* H264HwEncoderImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264HwEncoderImpl.h; sourceTree = "<group>"; };
+		862C7CBD212EA99400F60DC3 /* MacThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacThread.h; sourceTree = "<group>"; };
+		862C7CBE212EA99400F60DC3 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		862C7CBF212EA99400F60DC3 /* H264HwDecoderImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264HwDecoderImpl.h; sourceTree = "<group>"; };
+		862C7CC0212EA99400F60DC3 /* libAVManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAVManager.a; sourceTree = "<group>"; };
+		862C7CC1212EA99400F60DC3 /* libAudioProcessing.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAudioProcessing.a; sourceTree = "<group>"; };
+		862C7CC2212EA99400F60DC3 /* DataType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataType.h; sourceTree = "<group>"; };
+		862C7CC3212EA99400F60DC3 /* OBNetCallBackSink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBNetCallBackSink.h; sourceTree = "<group>"; };
+		862C7CC4212EA99400F60DC3 /* LinuxEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinuxEvent.h; sourceTree = "<group>"; };
+		862C7CC5212EA99400F60DC3 /* IUnknownEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUnknownEx.h; sourceTree = "<group>"; };
+		862C7CC6212EA99400F60DC3 /* ClientSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientSocket.h; sourceTree = "<group>"; };
+		862C7CC7212EA99400F60DC3 /* globaldef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globaldef.h; sourceTree = "<group>"; };
+		862C7CC8212EA99400F60DC3 /* ClientModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientModule.h; sourceTree = "<group>"; };
+		862C7CC9212EA99400F60DC3 /* OitServiceManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OitServiceManage.h; sourceTree = "<group>"; };
+		862C7CCA212EA99400F60DC3 /* DataStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStorage.h; sourceTree = "<group>"; };
+		862C7CCB212EA99400F60DC3 /* TimerEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerEngine.h; sourceTree = "<group>"; };
+		862C7CCC212EA99400F60DC3 /* localdef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = localdef.h; sourceTree = "<group>"; };
+		862C7CCD212EA99400F60DC3 /* ProtocolFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolFunction.h; sourceTree = "<group>"; };
+		862C7CCE212EA99400F60DC3 /* libOITAVSeviceKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOITAVSeviceKit.a; sourceTree = "<group>"; };
+		862C7CCF212EA99400F60DC3 /* IMDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDelegate.h; sourceTree = "<group>"; };
+		862C7CD0212EA99400F60DC3 /* custom_log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = custom_log.h; sourceTree = "<group>"; };
+		862C7CD1212EA99400F60DC3 /* SockClientSink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SockClientSink.h; sourceTree = "<group>"; };
+		862C7CD2212EA99400F60DC3 /* NetDataSyncSink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetDataSyncSink.h; sourceTree = "<group>"; };
+		862C7CD3212EA99400F60DC3 /* LFScreenAVKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFScreenAVKit.h; sourceTree = "<group>"; };
 		B64F42FB202196CB00B02093 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		B69D8DC020105CB700E1E377 /* Samples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Samples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B69D8DC320105CB700E1E377 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -73,24 +73,59 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				866B8CD020EC70E700C11B27 /* libOITAVSeviceKit.a in Frameworks */,
-				866B8CD320EC70E700C11B27 /* libAudioProcessing.a in Frameworks */,
+				862C7CD5212EA99400F60DC3 /* libAVManager.a in Frameworks */,
 				B64F42FC202196CB00B02093 /* WebKit.framework in Frameworks */,
 				B69D8E442010B8B600E1E377 /* CoreMedia.framework in Frameworks */,
+				862C7CD7212EA99400F60DC3 /* libOITAVSeviceKit.a in Frameworks */,
 				B69D8E422010B88C00E1E377 /* AudioToolbox.framework in Frameworks */,
-				866B8CD120EC70E700C11B27 /* libAudioUnit.a in Frameworks */,
-				866B8CD220EC70E700C11B27 /* libAVManager.a in Frameworks */,
 				B69D8E402010B87800E1E377 /* VideoToolbox.framework in Frameworks */,
+				862C7CD6212EA99400F60DC3 /* libAudioProcessing.a in Frameworks */,
+				862C7CD4212EA99400F60DC3 /* libAudioUnit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		862C7CB8212EA99400F60DC3 /* OITAVSeviceKit */ = {
+			isa = PBXGroup;
+			children = (
+				862C7CB9212EA99400F60DC3 /* ScreenCapThread.h */,
+				862C7CBA212EA99400F60DC3 /* H264HwEncoder.h */,
+				862C7CBB212EA99400F60DC3 /* libAudioUnit.a */,
+				862C7CBC212EA99400F60DC3 /* H264HwEncoderImpl.h */,
+				862C7CBD212EA99400F60DC3 /* MacThread.h */,
+				862C7CBE212EA99400F60DC3 /* config.h */,
+				862C7CBF212EA99400F60DC3 /* H264HwDecoderImpl.h */,
+				862C7CC0212EA99400F60DC3 /* libAVManager.a */,
+				862C7CC1212EA99400F60DC3 /* libAudioProcessing.a */,
+				862C7CC2212EA99400F60DC3 /* DataType.h */,
+				862C7CC3212EA99400F60DC3 /* OBNetCallBackSink.h */,
+				862C7CC4212EA99400F60DC3 /* LinuxEvent.h */,
+				862C7CC5212EA99400F60DC3 /* IUnknownEx.h */,
+				862C7CC6212EA99400F60DC3 /* ClientSocket.h */,
+				862C7CC7212EA99400F60DC3 /* globaldef.h */,
+				862C7CC8212EA99400F60DC3 /* ClientModule.h */,
+				862C7CC9212EA99400F60DC3 /* OitServiceManage.h */,
+				862C7CCA212EA99400F60DC3 /* DataStorage.h */,
+				862C7CCB212EA99400F60DC3 /* TimerEngine.h */,
+				862C7CCC212EA99400F60DC3 /* localdef.h */,
+				862C7CCD212EA99400F60DC3 /* ProtocolFunction.h */,
+				862C7CCE212EA99400F60DC3 /* libOITAVSeviceKit.a */,
+				862C7CCF212EA99400F60DC3 /* IMDelegate.h */,
+				862C7CD0212EA99400F60DC3 /* custom_log.h */,
+				862C7CD1212EA99400F60DC3 /* SockClientSink.h */,
+				862C7CD2212EA99400F60DC3 /* NetDataSyncSink.h */,
+				862C7CD3212EA99400F60DC3 /* LFScreenAVKit.h */,
+			);
+			name = OITAVSeviceKit;
+			path = "../../平安音视频服务SDK/OITAVSeviceKit";
+			sourceTree = "<group>";
+		};
 		B69D8DB720105CB700E1E377 = {
 			isa = PBXGroup;
 			children = (
-				B69D8E302010B75D00E1E377 /* OITAVSeviceKit */,
+				862C7CB8212EA99400F60DC3 /* OITAVSeviceKit */,
 				B69D8DC220105CB700E1E377 /* Samples */,
 				B69D8DC120105CB700E1E377 /* Products */,
 				B69D8E3C2010B82A00E1E377 /* Frameworks */,
@@ -119,41 +154,6 @@
 				B69D8DD220105CB700E1E377 /* main.m */,
 			);
 			path = Samples;
-			sourceTree = "<group>";
-		};
-		B69D8E302010B75D00E1E377 /* OITAVSeviceKit */ = {
-			isa = PBXGroup;
-			children = (
-				866B8CCC20EC70E700C11B27 /* ClientModule.h */,
-				866B8CCD20EC70E700C11B27 /* ClientSocket.h */,
-				866B8CCB20EC70E700C11B27 /* config.h */,
-				866B8CC920EC70E700C11B27 /* custom_log.h */,
-				866B8CCE20EC70E700C11B27 /* DataStorage.h */,
-				866B8CB920EC70E500C11B27 /* DataType.h */,
-				866B8CBD20EC70E600C11B27 /* globaldef.h */,
-				866B8CB720EC70E500C11B27 /* H264HwDecoderImpl.h */,
-				866B8CBA20EC70E600C11B27 /* H264HwEncoder.h */,
-				866B8CC720EC70E600C11B27 /* H264HwEncoderImpl.h */,
-				866B8CC620EC70E600C11B27 /* IMDelegate.h */,
-				866B8CC320EC70E600C11B27 /* IUnknownEx.h */,
-				866B8CCA20EC70E700C11B27 /* LFScreenAVKit.h */,
-				866B8CCF20EC70E700C11B27 /* libAudioProcessing.a */,
-				866B8CC120EC70E600C11B27 /* libAudioUnit.a */,
-				866B8CC820EC70E600C11B27 /* libAVManager.a */,
-				866B8CBB20EC70E600C11B27 /* libOITAVSeviceKit.a */,
-				866B8CBF20EC70E600C11B27 /* LinuxEvent.h */,
-				866B8CC020EC70E600C11B27 /* localdef.h */,
-				866B8CB520EC70E500C11B27 /* MacThread.h */,
-				866B8CBE20EC70E600C11B27 /* NetDataSyncSink.h */,
-				866B8CBC20EC70E600C11B27 /* OBNetCallBackSink.h */,
-				866B8CC220EC70E600C11B27 /* OitServiceManage.h */,
-				866B8CC520EC70E600C11B27 /* ProtocolFunction.h */,
-				866B8CB620EC70E500C11B27 /* ScreenCapThread.h */,
-				866B8CC420EC70E600C11B27 /* SockClientSink.h */,
-				866B8CB820EC70E500C11B27 /* TimerEngine.h */,
-			);
-			name = OITAVSeviceKit;
-			path = ../OITAVSeviceKit;
 			sourceTree = "<group>";
 		};
 		B69D8E3C2010B82A00E1E377 /* Frameworks */ = {
