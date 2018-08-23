@@ -42,6 +42,7 @@ static LFServiceSession *mLFLiveSession = nil;
     int                srcScreenHeight;
     NSString          *whiteFilePath;
     NSMutableArray    *whiteList;
+
 }
 @end
 
@@ -52,6 +53,7 @@ static LFServiceSession *mLFLiveSession = nil;
 {
 	if (self = [super init]) {
 		mClock = 0;
+        
 		pCOitServiceManage = new COitServiceManage();
         UIScreen *mainScreen = [UIScreen mainScreen];
         
@@ -365,7 +367,6 @@ static LFServiceSession *mLFLiveSession = nil;
 	return YES;
 }
 
-
 // 视频采集器
 -(void)BFVideoCollectOutWithFrameData:(void *)aVideoFrameBuffer WithDataLen:(unsigned int)dSize
 {
@@ -399,20 +400,48 @@ static LFServiceSession *mLFLiveSession = nil;
 // 媒体控制
 -(BOOL)StartAudioService
 {
-	if(_mAVManager != nil)
-	{
-		[_mAVManager startAudioQueue:0];	
-	}
-	
+    if(_mAVManager != nil)
+    {
+        [_mAVManager startAudioQueue:0];
+    }
+    
 	return YES;
 }
 
 -(BOOL)StopAudioService
 {
-	if (_mAVManager != nil) {
-		[_mAVManager stopAudioQueue];
-	}
+    if (_mAVManager != nil) {
+        [_mAVManager stopAudioQueue];
+    }
+    
+    [_mAVManager stopAudioQueue];
+    
 	return YES;
+}
+
+- (void)changeAudioSession
+{
+    if (_mAVManager != nil) {
+        
+        [_mAVManager changeAudioSessionOverrideAudioRoute];
+
+    } 
+}
+
+// 暂停音频
+-(void)pauseAudio
+{
+    if (_mAVManager != nil) {
+        [_mAVManager pauseAudioQueue];
+    }
+}
+
+// 重启音频
+-(void)reStartAudio
+{
+    if (_mAVManager != nil) {
+        [_mAVManager reStartAudioQueue];
+    }
 }
 
 @end

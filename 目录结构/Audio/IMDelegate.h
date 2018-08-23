@@ -41,6 +41,7 @@
 - (void)stopAudioQueue;
 - (void)pauseAudioQueue;
 - (void)reStartAudioQueue;
+- (void)changeAudioSessionOverrideAudioRoute;
 
 // 设置音频发送状态
 - (void)setSendAudioDataState:(BOOL)state;
