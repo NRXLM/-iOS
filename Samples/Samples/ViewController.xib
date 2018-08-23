@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
+            <connections>
+                <outlet property="mLabel" destination="ItE-TF-7G3" id="jDf-nN-eAO"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Hjo-Sa-sl9"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ze6-hj-bUh">
+                    <rect key="frame" x="0.0" y="0.0" width="94" height="90.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Ze6-hj-bUh" secondAttribute="height" multiplier="31:30" id="twN-d4-ZXb"/>
+                    </constraints>
+                    <state key="normal" title="唤醒"/>
+                    <connections>
+                        <action selector="getNewWindow:" destination="-1" eventType="touchUpInside" id="G4I-tl-cSN"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cb-SC-v0M">
+                    <rect key="frame" x="281.5" y="0.0" width="93.5" height="90.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="3cb-SC-v0M" secondAttribute="height" multiplier="31:30" id="lc6-ze-QzF"/>
+                    </constraints>
+                    <state key="normal" title="停止"/>
+                    <connections>
+                        <action selector="stop:" destination="-1" eventType="touchUpInside" id="nSG-2z-DYs"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGS-zR-mvd">
+                    <rect key="frame" x="187.5" y="0.0" width="94" height="90.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="mGS-zR-mvd" secondAttribute="height" multiplier="31:30" id="WPR-00-dFf"/>
+                    </constraints>
+                    <state key="normal" title="开始"/>
+                    <connections>
+                        <action selector="startSvice:" destination="-1" eventType="touchUpInside" id="bTj-ZQ-4YU"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhD-sy-R1D">
+                    <rect key="frame" x="94" y="0.0" width="93.5" height="90.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="mhD-sy-R1D" secondAttribute="height" multiplier="31:30" id="fTp-vL-elk"/>
+                    </constraints>
+                    <state key="normal" title="切换"/>
+                    <connections>
+                        <action selector="changeAudioSession:" destination="-1" eventType="touchUpInside" id="7qT-7w-bzS"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="状态" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItE-TF-7G3">
+                    <rect key="frame" x="8" y="574" width="359" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="mGS-zR-mvd" firstAttribute="height" secondItem="Ze6-hj-bUh" secondAttribute="height" id="0fA-bk-HFn"/>
+                <constraint firstItem="3cb-SC-v0M" firstAttribute="leading" secondItem="mGS-zR-mvd" secondAttribute="trailing" id="1h7-gh-Rf2"/>
+                <constraint firstItem="mGS-zR-mvd" firstAttribute="leading" secondItem="mhD-sy-R1D" secondAttribute="trailing" id="31y-OZ-XH3"/>
+                <constraint firstItem="3cb-SC-v0M" firstAttribute="height" secondItem="Ze6-hj-bUh" secondAttribute="height" id="6Gz-DE-DBi"/>
+                <constraint firstItem="mhD-sy-R1D" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7q6-F5-sbl"/>
+                <constraint firstItem="mGS-zR-mvd" firstAttribute="width" secondItem="Ze6-hj-bUh" secondAttribute="width" id="Eph-WF-Oc8"/>
+                <constraint firstItem="mhD-sy-R1D" firstAttribute="width" secondItem="Ze6-hj-bUh" secondAttribute="width" id="Fua-rR-7s8"/>
+                <constraint firstItem="mhD-sy-R1D" firstAttribute="height" secondItem="Ze6-hj-bUh" secondAttribute="height" id="M5t-gm-3Lz"/>
+                <constraint firstItem="Ze6-hj-bUh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MhJ-m4-oto"/>
+                <constraint firstItem="Ze6-hj-bUh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aWU-TA-mGk"/>
+                <constraint firstItem="3cb-SC-v0M" firstAttribute="width" secondItem="Ze6-hj-bUh" secondAttribute="width" id="hdu-wi-DGz"/>
+                <constraint firstAttribute="trailing" secondItem="3cb-SC-v0M" secondAttribute="trailing" id="jFo-gB-GfU"/>
+                <constraint firstItem="3cb-SC-v0M" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="t6r-Ii-O7D"/>
+                <constraint firstItem="mGS-zR-mvd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yDC-rb-Zxu"/>
+                <constraint firstItem="mhD-sy-R1D" firstAttribute="leading" secondItem="Ze6-hj-bUh" secondAttribute="trailing" id="zEn-lw-DYP"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
