@@ -17,6 +17,9 @@
 		862C7DBC212EB59F00F60DC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 862C7DB7212EB59F00F60DC3 /* AppDelegate.m */; };
 		862C7DE3212EB9A100F60DC3 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C7DDE212EB5E400F60DC3 /* WebKit.framework */; };
 		862C7DE9212EB9B100F60DC3 /* libOITAVSeviceKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C7DE5212EB9B000F60DC3 /* libOITAVSeviceKit.a */; };
+		862C7DEE212EC97B00F60DC3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C7DED212EC97000F60DC3 /* CoreMedia.framework */; };
+		862C7DF0212EC98800F60DC3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C7DEF212EC98200F60DC3 /* AudioToolbox.framework */; };
+		862C7DF2212EC99A00F60DC3 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C7DF1212EC98F00F60DC3 /* VideoToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		862C7DD8212EB5B400F60DC3 /* LFScreenAVKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFScreenAVKit.h; sourceTree = "<group>"; };
 		862C7DDE212EB5E400F60DC3 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		862C7DE5212EB9B000F60DC3 /* libOITAVSeviceKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOITAVSeviceKit.a; sourceTree = "<group>"; };
+		862C7DED212EC97000F60DC3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		862C7DEF212EC98200F60DC3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		862C7DF1212EC98F00F60DC3 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				862C7DF2212EC99A00F60DC3 /* VideoToolbox.framework in Frameworks */,
+				862C7DF0212EC98800F60DC3 /* AudioToolbox.framework in Frameworks */,
+				862C7DEE212EC97B00F60DC3 /* CoreMedia.framework in Frameworks */,
 				862C7DE9212EB9B100F60DC3 /* libOITAVSeviceKit.a in Frameworks */,
 				862C7DE3212EB9A100F60DC3 /* WebKit.framework in Frameworks */,
 			);
@@ -101,6 +110,9 @@
 		862C7DDD212EB5E400F60DC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				862C7DF1212EC98F00F60DC3 /* VideoToolbox.framework */,
+				862C7DEF212EC98200F60DC3 /* AudioToolbox.framework */,
+				862C7DED212EC97000F60DC3 /* CoreMedia.framework */,
 				862C7DDE212EB5E400F60DC3 /* WebKit.framework */,
 			);
 			name = Frameworks;
