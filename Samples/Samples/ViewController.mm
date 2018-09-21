@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "LFScreenAVKit.h"
 #import <WebKit/WKWebView.h>
+#import <AVFoundation/AVFoundation.h>
 
 #define ENC_VCX     320
 #define ENC_VCY     480
@@ -50,8 +51,8 @@
 	
     NSMutableArray *whiteList;
     
-    
 }
+@property (nonatomic, strong)AVPlayer *player;
 
 @end
 
@@ -111,7 +112,8 @@
 {
 	if(lStauts < 2000 || lStauts == 2007 )
 	{
-        [mSCKitHnd StopSevice];
+        NSLog(@"%d", [mSCKitHnd StopSevice]);
+//        [mSCKitHnd StopSevice];
 	}
 
 	mLabel.text = [dict objectForKey:@(lStauts)];
@@ -186,7 +188,13 @@
     
     [mSCKitHnd StarSeviceWithJobNumCode:work AndSVMobile:phone AndRecodeWidth:320 AndRecodHeight:480 screenWidth:srcWidth screenHeight:srcHeight];
 
+    /*
+    NSURL * url  = [NSURL URLWithString:@"http://ra01.sycdn.kuwo.cn/resource/n3/32/56/3260586875.mp3"];
+    AVPlayerItem * songItem = [[AVPlayerItem alloc]initWithURL:url];
+    self.player = [[AVPlayer alloc]initWithPlayerItem:songItem];
     
+    [self.player play];
+    */
 }
 
 

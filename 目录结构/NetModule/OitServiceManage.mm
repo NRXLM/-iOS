@@ -106,12 +106,13 @@ bool COitServiceManage::StartService(CHAR *jobNum, CHAR *mobile, int vcx, int vc
 //停止管理服务
 bool COitServiceManage::StopService()
 {
-    isStop = true;
 	mScreenCapThread.StopVideoThread();
 	[midAudio StopAudioService];
 	mTimerEngine.StopService();
 	mNetDataSyncSink.CloseConnect();
-	
+
+    isStop = true;
+    
 	return true;
 }
 

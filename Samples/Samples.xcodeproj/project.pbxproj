@@ -17,9 +17,9 @@
 		862C7DBC212EB59F00F60DC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 862C7DB7212EB59F00F60DC3 /* AppDelegate.m */; };
 		862C7DE3212EB9A100F60DC3 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C7DDE212EB5E400F60DC3 /* WebKit.framework */; };
 		862C7DE9212EB9B100F60DC3 /* libOITAVSeviceKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C7DE5212EB9B000F60DC3 /* libOITAVSeviceKit.a */; };
-		862C7DEE212EC97B00F60DC3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C7DED212EC97000F60DC3 /* CoreMedia.framework */; };
-		862C7DF0212EC98800F60DC3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C7DEF212EC98200F60DC3 /* AudioToolbox.framework */; };
-		862C7DF2212EC99A00F60DC3 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C7DF1212EC98F00F60DC3 /* VideoToolbox.framework */; };
+		8664B0202137DAC700A33C2C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C7DEF212EC98200F60DC3 /* AudioToolbox.framework */; };
+		8664B0212137DACE00A33C2C /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C7DF1212EC98F00F60DC3 /* VideoToolbox.framework */; };
+		8664B0222137DAD700A33C2C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 862C7DED212EC97000F60DC3 /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,9 +49,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				862C7DF2212EC99A00F60DC3 /* VideoToolbox.framework in Frameworks */,
-				862C7DF0212EC98800F60DC3 /* AudioToolbox.framework in Frameworks */,
-				862C7DEE212EC97B00F60DC3 /* CoreMedia.framework in Frameworks */,
+				8664B0222137DAD700A33C2C /* CoreMedia.framework in Frameworks */,
+				8664B0212137DACE00A33C2C /* VideoToolbox.framework in Frameworks */,
+				8664B0202137DAC700A33C2C /* AudioToolbox.framework in Frameworks */,
 				862C7DE9212EB9B100F60DC3 /* libOITAVSeviceKit.a in Frameworks */,
 				862C7DE3212EB9A100F60DC3 /* WebKit.framework in Frameworks */,
 			);
